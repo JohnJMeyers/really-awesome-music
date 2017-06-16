@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Really Awesome Music Site</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header>
+        <h1>Really Awesome Music Site</h1>
+    </header>
+    <section class='now-playing'>
+      <div class="audio-player">
+          <audio class="music-player" controls="controls" src=""></audio>
+      </div>
+      <div class="now-playing-text">
+          <!--Now Playing text goes here -->
+      </div>
+    </section>
+    <form class="search-form" action="index.html" method="post">
+        <input class= 'formInput' type="text" name="search" placeholder="Search for Artist">
+        <button id="search-button" name="search">Search</button>
+    </form>
+    <section class="search-results-box">
+      <h3 class='search-header'>Search Results:</h3>
+      <div class="search-results">
+        <!--Search results go here -->
+      </div>
+    </section>
+    <script src='main.js'></script>
+  </body>
+</html>
