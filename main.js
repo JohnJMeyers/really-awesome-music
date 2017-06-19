@@ -1,9 +1,12 @@
+const token = '?client_id=095fe1dcd09eb3d0e1d3d89c76f5618f'
 let searchResults = document.querySelector('.search-results')
+let trackSong;
 
 
 
 function searchFor (formInput) {
   let users = []
+
 
 
   fetch(`http://api.soundcloud.com/users/?client_id=8538a1744a7fdaa59981232897501e04&q=${formInput}`, {
@@ -22,7 +25,7 @@ function searchFor (formInput) {
 
     }
       for (let i = 0; i < users.length; i++) {
-        
+
         let userHTML = `
         <section id='${users[i].id}' class='user-blocks'>
           <div class='userImageDiv'>
@@ -37,7 +40,7 @@ function searchFor (formInput) {
 
         document.getElementById(`${users[i].id}`).addEventListener('click', function() {
 
-          getTracks(users[i].id, users[i].userName)
+          getTracks(users[i].id, users[i].userName, users[i].avatar)
         })
 
       }
@@ -47,18 +50,74 @@ function searchFor (formInput) {
 }
 
 
-function getTracks(id, userName) {
-  // searchResults.textContent='';
+function getTracks(id, userName, avatar) {
+  let tracks = []
+  searchResults.textContent='';
   fetch(`https://api.soundcloud.com/users/${id}/tracks/?client_id=095fe1dcd09eb3d0e1d3d89c76f5618f`, {
   })
+  // fetch(`https://api.soundcloud.com/users/${id}/tracks/?client_id=095fe1dcd09eb3d0e1d3d89c76f5618f&q=${userName}`, {
+  // })
   .then( function(p) {
       return p.json()
     })
     .then( function(json) {
       console.log(json);
+      for (let i = 0; i < json.length; i++) {
+        let trackInfo = {}
+        trackInfo.artwork = json[i].artwork_url
+        trackInfo.title = json[i].title
+        trackInfo.url = json[i].stream_url
+        trackInfo.id = json[i].id
+        trackInfo.avatar = avatar
+
+        tracks.push(trackInfo)
+
+
+      }
+
+      for (let i = 0; i < tracks.length; i++) {
+        let audio
+        if (`${tracks[i].artwork}` === 'null') {
+           audio = `
+          <section id='${tracks[i].url}' class='user-blocks'>
+            <div class='userImageDiv'>
+              <img class='userImage' src='${tracks[i].avatar}'>
+            </div>
+            <div class='userName'
+              <p>${tracks[i].title}</p>
+            </div>
+          </section>`
+          console.log(tracks)
+        } else {
+          audio = `
+          <section id='${tracks[i].url}' class='user-blocks'>
+            <div class='userImageDiv'>
+              <img class='userImage' src='${tracks[i].artwork}'>
+            </div>
+            <div class='userName'
+              <p>${tracks[i].title}</p>
+            </div>
+          </section>`
+          console.log(tracks)
+    }
+        searchResults.insertAdjacentHTML('afterbegin', audio)
+        document.getElementById(`${tracks[i].url}`).addEventListener('click', function() {
+          document.querySelector('.audio-player').textContent='';
+          playTrack(tracks[i].url)
+
+        })
+      }
     })
 
 }
+function playTrack(track) {
+  let playSong = `
+  <audio  class='player' controls="true" class="player" src='${track}${token}' autoplay="true">
+</audio>
+  `
+  document.querySelector('.audio-player').insertAdjacentHTML('afterbegin', playSong)
+}
+
 
 
 
