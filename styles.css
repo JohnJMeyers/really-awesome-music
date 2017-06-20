@@ -1,27 +1,126 @@
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script|Josefin+Sans|Noto+Serif|Roboto');
 
-/**, *:before, *:after {
+*, *:before, *:after {
   box-sizing: border-box;
 }
 * {
   margin: 0;
-  padding: 0;
-  border: 0;
-  outline: 0;
-  font-size: 100%;
-  vertical-align: baseline;
-  background: transparent;
-}*/
+}
+body {
+  background-color: #4FC3F7;
+}
+.searchHeader {
+  height: 36px;
+  width: 100%;
+}
+.span-container {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background-color: #80DEEA;
+}
+.now-playing {
+  padding: 2% 2% 0 2%;
+  margin-left: 10px;
+}
+.search-span {
+  padding: 2%;
+  margin-right: 10px;
+}
+.formInput {
+  line-height: 1.3;
+  font-size: 20px;
+}
+#search-button {
+  line-height: 1.3;
+  font-size: 20px;
+}
+.background-image {
+  padding-top: 20%;
+  height: 600px;
+  background-image: url('headphones.jpg');
+  background-size: cover;
+  background-position-y: 150%;
+  text-align: center;
+  background-attachment: fixed;
+}
 .search-results {
-  margin: 0 auto;
+  margin: 3% 0;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  padding-left: 1%;
+  padding-right: 1%;
 }
 .userImage {
-  height: 100px;
-  width: 100px;
+  width: 60%;
 }
 .user-blocks {
-  border: 1px solid red;
-  flex-basis: 19.5%;
+  margin-left: 1%;
+  margin-right: 1%;
+  background-color: #9bc2cf;
+  margin-bottom: 3%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-basis: 18%;
+  padding: 1%;
+  border-radius: 3%;
+  text-align: center;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  box-shadow: 0px 8px rgba(0, 0, 0, 0.2);
+}
+.user-blocks:active {
+  position: relative;
+  box-shadow: 0px 0px #6b54d3;
+  top: 4px;
+}
+.user-blocks:hover {
+  cursor: pointer;
+}
+.userName {
+  margin: 5%;2% */
+  margin: 2%;
+  max-width: 200px;
+}
+.header {
+  margin-top: 14.5%;
+  font-size: 600%;
+  font-weight: bold;
+  font-family: 'Roboto', sans-serif;
+  color: #fff;
+  text-shadow: 3px 3px #3D403C;
+}
+p.header {
+  width: 100%;
+}
+.main-body {
+  height: 100%;
+  background-color: #add8e6;
+}
+.userImageDiv {
+  padding-top: 10px;
+  width: 100%;
+}
+.search-header {
+  padding: 3%;
+  padding-bottom: 0;
+  text-align: left;
+  color: white;
+  font-size: 200%;
+  font-family: 'Roboto', sans-serif;
+}
+.now-playing-text {
+  max-width: 300px;
+  font-size: 12px;
+  text-align: center;
+  padding-top: 1%;
+  color: white;
+}
+#icon {
+  padding-top: 1%;
+  color: white;
+  font-size: 60px;
 }

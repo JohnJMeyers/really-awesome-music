@@ -2,31 +2,45 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Really Awesome Music Site</title>
+    <title>TESLA RADIO</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <header>
-        <h1>Really Awesome Music Site</h1>
-    </header>
-    <section class='now-playing'>
-      <div class="audio-player">
-          <!-- <audio class="music-player" controls="controls" src=""></audio> -->
-      </div>
-      <div class="now-playing-text">
-          <!--Now Playing text goes here -->
+    <section class='searchHeader'>
+      <div class="span-container">
+        <span class='now-playing'>
+          <div class="audio-player">
+            <audio class='player' controls="true" class="player" src='${track}?client_id=095fe1dcd09eb3d0e1d3d89c76f5618f' autoplay="true">
+          </audio>
+              <!-- <audio class="music-player" controls="controls" src=""></audio> -->
+          </div>
+          <div class="now-playing-">
+              <!--Now Playing text goes here -->
+          </div>
+
+        </span>
+        <i id='icon' class="fa fa-bolt" aria-hidden="true"></i>
+        <span class='search-span'>
+          <form class="search-form" action="index.html" method="post">
+              <input class= 'formInput' type="text" name="search" placeholder="Search for Artist">
+              <button id="search-button" name="search">Search</button>
+          </form>
+        </span>
       </div>
     </section>
-    <form class="search-form" action="index.html" method="post">
-        <input class= 'formInput' type="text" name="search" placeholder="Search for Artist">
-        <button id="search-button" name="search">Search</button>
-    </form>
-    <div class="search-results-box">
-      <h3 class='search-header'>Search Results:</h3>
-      <div id="searchResults" class="search-results">
-
-      </div>
+    <div class="background-image">
+      <header>
+          <p class='header'>TESLA RADIO</p>
+      </header>
     </div>
+    <main class='main-body'>
+      <div class="search-results-box">
+        <h3 class='search-header'>Search Results:</h3>
+        <div id="searchResults" class="search-results">
+        </div>
+      </div>
+    </main>
     <script src='main.js'></script>
   </body>
 </html>
